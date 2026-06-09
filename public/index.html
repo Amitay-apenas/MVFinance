@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Ganhos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-screen" class="auth-container">
+        <div class="auth-card">
+            <h2>Controle Financeiro</h2>
+            <p>Faça login para acessar</p>
+            <div class="input-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" placeholder="Digite o usuário">
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="Digite a senha">
+            </div>
+            <button onclick="handleLogin()">Entrar</button>
+            <p id="login-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <div id="main-dashboard" class="dashboard-container hidden">
+        <header>
+            <h1>Minha Plataforma de Ganhos 💰</h1>
+            <button onclick="handleLogout()" class="logout-btn">Sair</button>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card income">
+                <h3>Total Ganho</h3>
+                <p id="total-income">R$ 0,00</p>
+            </div>
+            <div class="card expenses">
+                <h3>Total Gasto</h3>
+                <p id="total-expenses">R$ 0,00</p>
+            </div>
+            <div class="card profit">
+                <h3>Lucro Líquido</h3>
+                <p id="net-profit">R$ 0,00</p>
+            </div>
+        </div>
+
+        <div class="forms-section">
+            <div class="form-card">
+                <h3>Registrar Ganho (+)</h3>
+                <input type="text" id="income-desc" placeholder="Ex: Venda de bolo, Diária">
+                <input type="number" id="income-value" placeholder="Valor (R$)" step="0.01">
+                <button onclick="addTransaction('income')" class="btn-income">Adicionar Ganho</button>
+            </div>
+
+            <div class="form-card">
+                <h3>Registrar Gasto (-)</h3>
+                <input type="text" id="expense-desc" placeholder="Ex: Ingredientes, Luz">
+                <input type="number" id="expense-value" placeholder="Valor (R$)" step="0.01">
+                <button onclick="addTransaction('expense')" class="btn-expense">Adicionar Gasto</button>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h3>Histórico de Movimentações</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transaction-history">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
